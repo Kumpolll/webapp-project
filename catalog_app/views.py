@@ -1,23 +1,17 @@
 from django.shortcuts import render
 from .models import Product, Traveler
 from .forms import RegisterForm, LoginForm
-
 from django.http import HttpResponseRedirect, HttpResponse
 import json
 import bcrypt
-
 from django.http import JsonResponse
 
 def app_login(request):
     email = request.GET.get('email')
     password = request.GET.get('password')
-
-
     travelers = Traveler.objects.filter(email=email).filter(password=password)
-
     print(email, password)
     print(travelers)
-
     if len(travelers) > 0:
         return JsonResponse({
             "result": "Success",
