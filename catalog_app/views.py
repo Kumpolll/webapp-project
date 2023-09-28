@@ -22,7 +22,7 @@ def app_login(request):
             "result": "Failure",
             "email": "None"
         })
-
+ 
 def my_salt():
     return ('$2b$12$tUimG74HOCBiAA7sm3QX9e').encode('utf-8')
 
